@@ -44,7 +44,10 @@ const AllSplits = () => {
             </div>
 
             {/* Stats Card */}
-            <div className="bg-blue-600 text-white p-6 rounded-xl shadow-sm mb-8">
+            <div className="relative bg-blue-600 text-white p-6 rounded-xl shadow-sm mb-8">
+            <div className="absolute bottom-0 right-0 overflow-hidden lg:inset-y-0">
+                <img className="w-auto h-full" src="https://d33wubrfki0l68.cloudfront.net/1e0fc04f38f5896d10ff66824a62e466839567f8/699b5/images/hero/3/background-pattern.png" alt="" />
+            </div>
                 <div className="flex justify-between items-center mb-2">
                     <p className="text-gray-100 font-medium text-sm">Total Allocated</p>
                     <TrendingUp className="text-gray-100" size={20} />
