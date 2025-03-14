@@ -11,7 +11,7 @@ const LIVE_URL = "https://t-savvy-1.onrender.com/api"
 const apiClient = axios.create({
     baseURL: LIVE_URL,
     headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
     },
 });
 
