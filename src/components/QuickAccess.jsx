@@ -25,7 +25,7 @@ const QuickAccess = () => {
             color: 'bg-green-100 text-green-600'
         },
         {
-            id: 'splits',
+            id: 'create',
             name: 'Create Split',
             icon: <Plus size={28}/>,
             color: 'bg-purple-100 text-purple-600'

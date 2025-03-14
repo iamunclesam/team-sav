@@ -10,6 +10,7 @@ import Welcome from './pages/onboarding/Welcome.jsx';
 import SplitDetails from './pages/split/splitDetails.jsx';
 import AllSplits from "./pages/split/allSplits.jsx"
 import CreateSplit from "./pages/CreateSplit.jsx"
+import MakeTransfer from "./pages/MakeTransfers.jsx"
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/splits" element={<AllSplits />} />
         <Route path="/split/:id" element={<SplitDetails />} />
+        <Route path="/transfer" element={<MakeTransfer />} />
       </Routes>
       {!hideNavigation && <Navigation />}
     </div>

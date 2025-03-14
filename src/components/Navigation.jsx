@@ -23,7 +23,7 @@ const Navigation = () => {
         </NavLink>
 
         <NavLink 
-          to="/create" 
+          to="/splits" 
           className={({ isActive }) => 
             `relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-300 ${isActive ? 'text-green-600' : 'text-gray-500 hover:text-green-500'}`
           }
