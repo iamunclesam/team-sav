@@ -26,7 +26,7 @@ const QuickAccess = () => {
         },
         {
             id: 'splits',
-            name: 'Split Fund',
+            name: 'Create Split',
             icon: <Plus size={28}/>,
             color: 'bg-purple-100 text-purple-600'
         },
