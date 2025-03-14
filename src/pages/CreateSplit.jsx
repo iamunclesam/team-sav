@@ -11,7 +11,7 @@ const CreateSplit = () => {
   const [showBalance, setShowBalance] = useState(true);
   const [showContributors, setShowContributors] = useState(true);
   const [splitName, setSplitName] = useState('');
-  const [allocation, setallocation] = useState(0);
+  const [allocation, setallocation] = useState();
   const [interest, setInterest] = useState(0);
   const [duration, setDuration] = useState(0);
   const [allowInstallment, setAllowInstallment] = useState(false);
@@ -20,7 +20,7 @@ const CreateSplit = () => {
   const [selectedDuration, setSelectedDuration] = useState(7);
 
   const [currentUser, setCurrentUser] = useState(null);
-  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedColor, setSelectedColor] = useState("");
   const [loading, setLoading] = useState(false)
 
   const colors = [
@@ -223,7 +223,7 @@ const CreateSplit = () => {
             {colors.map((color) => (
               <div
                 key={color.name}
-                className="w-8 h-8 rounded-full cursor-pointer border-2 border-gray-200 hover:border-gray-400 transition-all"
+                className={`w-8 h-8 rounded-full cursor-pointer border-2 border-gray-200 hover:border-gray-400 transition-all ${selectedColor === color.name && 'border-2 border-white'}`}
                 style={{ backgroundColor: color.hex }}
                 onClick={() => handleColorClick(color.name)}
               />

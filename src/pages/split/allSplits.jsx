@@ -36,7 +36,7 @@ const AllSplits = () => {
     const totalAllocated = filteredSplits.reduce((sum, split) => sum + split.allocatedAmount, 0);
 
     return (
-        <div className="max-w-lg mx-auto p-2 min-h-screen">
+        <div className="max-w-lg mx-auto p-4 min-h-screen">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-xl font-medium text-gray-50">All Splits</h1>
                 <Link className="bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors" to="/create">
