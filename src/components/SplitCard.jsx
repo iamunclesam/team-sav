@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const SplitCard = ({splits}) => {
-    useEffect(( ) => {
-        console.log(splits[0].color)
-    }, [])
+
     const totalBal = 20000
     return (
         <div className="grid grid-cols-2 gap-4">
