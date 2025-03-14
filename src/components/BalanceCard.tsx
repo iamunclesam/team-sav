@@ -49,10 +49,10 @@ const BalanceCard = () => {
         
         <h2 className="text-3xl font-bold mb-6 flex items-center">
           {showBalance ? '$2,450.00' : '••••••••'}
-          <div className="ml-2 text-sm bg-white/20 rounded-full px-2 py-0.5 flex items-center">
+          {/* <div className="ml-2 text-sm bg-white/20 rounded-full px-2 py-0.5 flex items-center">
             <TrendingUp size={12} className="mr-1" />
             <span>+3.5%</span>
-          </div>
+          </div> */}
         </h2>
         
         <div className="p-4 pb-1 bg-white/10 rounded-xl backdrop-blur-sm">
