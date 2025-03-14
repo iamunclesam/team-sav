@@ -29,7 +29,7 @@ const Transfer = () => {
 
     return (
         <div className="p-4 pb-20">
-            <h1 className="text-2xl font-bold mb-6">Transfer Money</h1>
+            <h1 className="text-2xl font-bold mb-6 text-gray-50">Transfer Money</h1>
 
             {/* Transfer Type Selection */}
             <div className="bg-white rounded-xl shadow-sm p-4 mb-6">

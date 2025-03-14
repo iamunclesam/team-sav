@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { Share2, TrendingUp, ArrowRight, Plus } from 'lucide-react';
 import SplitCard from '../../components/SplitCard.jsx'
 import apiService from "../../utils/ApiService.js"
+import { Link, useNavigate } from 'react-router-dom';
 
 const AllSplits = () => {
     const [activeTab, setActiveTab] = useState('all');
     const [splits, setSplits] = useState([]);
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchSplits = async () => {
@@ -37,9 +39,9 @@ const AllSplits = () => {
         <div className="max-w-lg mx-auto p-6  min-h-screen">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-xl font-medium text-gray-50">All Splits</h1>
-                <button className="bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+                <Link className="bg-blue-600 text-white p-2 rounded-full shadow-lg hover:bg-blue-700 transition-colors" to="/create">
                     <Plus size={16} />
-                </button>
+                </Link>
             </div>
 
             {/* Stats Card */}

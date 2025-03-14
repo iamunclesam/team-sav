@@ -41,8 +41,8 @@ const Home = () => {
     <div className="p-4 pb-20">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <img src="https://placehold.co/600x400" className='w-10 h-10 rounded-full object-cover' alt="" />
-          <h1 className="text-lg text-gray-50  font-medium">Hello, John</h1>
+          <img src="https://plus.unsplash.com/premium_photo-1723204814857-f72033f99e30?q=80&w=2028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className='w-10 h-10 rounded-full object-cover' alt="" />
+          <h1 className="text-lg text-gray-50  font-medium">Hello, Samuel</h1>
         </div>
         <div className="text-gray-100">
           <Bell size={24} />
