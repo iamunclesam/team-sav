@@ -430,7 +430,7 @@ const CreateSplit = () => {
         {/* Create Split Button */}
         <button
           type="submit"
-          className="w-[80%] bg-blue-600 text-white py-3 rounded-lg px-6 py-2 mx-auto block font-medium hover:bg-blue-700 transition-colors  mt-8 mb-12"
+          className="w-[100%] bg-blue-600 text-white py-3 rounded-lg px-6 py-2 mx-auto block font-medium hover:bg-blue-700 transition-colors  mt-8 mb-12"
         >
           {loading ? <Loader className='animate-spin mx-auto' /> : "Create Split"}
         </button>

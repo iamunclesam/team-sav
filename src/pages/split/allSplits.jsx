@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Share2, TrendingUp, ArrowRight, Plus } from 'lucide-react';
 import SplitCard from '../../components/SplitCard.jsx'
-import apiService from  "../../utils/ApiService.js"
+import apiService from "../../utils/ApiService.js"
 
 const AllSplits = () => {
     const [activeTab, setActiveTab] = useState('all');
@@ -57,15 +57,15 @@ const AllSplits = () => {
                 </div>
             </div>
 
-            <div className="flex bg-transparent border-b border-gray-200 mb-6">
+            <div className="flex bg-transparent border-gray-200 mb-6">
                 {['All', 'Private', 'Public', 'Savings', 'Lending'].map((tab) => (
                     <button
                         key={tab}
-                        className={`flex-1 py-3 text-center text-sm font-medium transition-all duration-300 ${activeTab === tab.toLowerCase()
-                                ? 'text-blue-600 border-b-2 border-blue-600'
-                                : 'text-gray-500 hover:text-gray-900'
+                        className={`flex-1 py-1 px-3 text-center text-sm font-medium transition-all duration-300 ${activeTab === tab
+                            ? 'text-blue-600 bg-blue-500/30 rounded-full border-blue-600'
+                            : 'text-gray-500 hover:text-gray-300'
                             }`}
-                        onClick={() => setActiveTab(tab.toUpperCase())}
+                        onClick={() => { setActiveTab(tab.toUpperCase()) }}
                     >
                         {tab}
                     </button>

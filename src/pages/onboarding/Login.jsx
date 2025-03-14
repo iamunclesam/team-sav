@@ -28,7 +28,7 @@ const Login = () => {
       
       <div className=" pt-5" >
         <div className="text-center">
-          <p className="text-xl font-semibold pb-3">Log in to your account</p>
+          <p className="text-xl font-semibold text-grqy-50 pb-3">Log in to your account</p>
         </div>
 
         <div className="w-full max-w-md bg-cyan-900 p-4 rounded-t-xl shadow-md">

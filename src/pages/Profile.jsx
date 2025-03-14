@@ -6,11 +6,11 @@ const Profile = () => {
     <div className="p-4 pb-20">
       <div className="flex items-center mb-8">
         <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-          <span className="text-2xl font-bold text-blue-600">JD</span>
+          <span className="text-2xl font-bold text-blue-600">SA</span>
         </div>
-        <div className="ml-4">
-          <h1 className="text-2xl font-bold">John Doe</h1>
-          <p className="text-gray-600">john.doe@example.com</p>
+        <div className="ml-4 text-gray-50">
+          <h1 className="text-2xl font-bold">Sam Adeyemi</h1>
+          <p className="text-gray-300">adeyemisam@gmail.com</p>
         </div>
       </div>
 

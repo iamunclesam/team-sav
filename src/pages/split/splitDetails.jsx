@@ -27,7 +27,7 @@ const SplitDetails = () => {
 
   return (
     <div className="p-4 pb-20">
-      <h1 className="text-2xl font-bold mb-6">{split.name}</h1>
+      <h1 className="text-2xl font-bold mb-6 text-white">{split.name}</h1>
 
       <div className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-6 rounded-2xl mb-6">
         <div className="relative">
@@ -35,7 +35,7 @@ const SplitDetails = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
           <div className="relative">
             <p className="text-sm opacity-80">Split Balance</p>
-            <h2 className="text-3xl font-bold mb-4">${split.allocated}</h2>
+            <h2 className="text-3xl font-bold mb-4">  &#8358;{split.allocated}</h2>
             <div className="bg-white/20 h-2 rounded-full mb-2">
               <div 
                 className="bg-white h-2 rounded-full"
@@ -44,7 +44,7 @@ const SplitDetails = () => {
             </div>
             <p className="text-sm">
               <span className="opacity-80">Target: </span>
-              <span className="font-semibold">${split.amount}</span>
+              <span className="font-semibold"> &#8358;{split.amount}</span>
             </p>
           </div>
         </div>

@@ -99,7 +99,7 @@ const SplitCard = ({splits}) => {
                             )}
                             <div className="flex flex-col">
                                 <span className="text-gray-500 text-xs">Allocated</span>
-                                <span className={`font-semibold ${colors.text}`}>${split.allocatedAmount.toLocaleString()}</span>
+                                <span className={`font-semibold ${colors.text}`}>  &#8358;{split.allocatedAmount.toLocaleString()}</span>
                             </div>
                         </div>
                     </div>
