@@ -2,6 +2,7 @@ import React from 'react';
 import { Wallet, Share2, TrendingUp, Bell } from 'lucide-react';
 import SplitCard from '../components/SplitCard.js'
 import QuickAccess from '../components/QuickAccess.js';
+import BalanceCard from '../components/BalanceCard.js';
 
 const Home = () => {
   // const splits = [
@@ -22,7 +23,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-6 rounded-2xl mb-6">
+      {/* <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-6 rounded-2xl mb-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),transparent_60%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
         <div className="absolute -inset-1 bg-gradient-to-t from-white/[0.05] to-transparent"></div>
@@ -40,7 +41,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <BalanceCard />
 
       <QuickAccess />
 
