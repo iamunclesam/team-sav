@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Wallet, Share2, TrendingUp, Bell } from 'lucide-react';
 import SplitCard from '../components/SplitCard.jsx'
 import QuickAccess from '../components/QuickAccess.js';
 import BalanceCard from '../components/BalanceCard.js';
+
+import apiService from '../utils/ApiService.js'
+
 
 const Home = () => {
   // const splits = [
@@ -13,6 +16,26 @@ const Home = () => {
 
 
   // ];
+
+  const [splits, setSplits] = useState([]);
+
+  useEffect(() => {
+    const fetchSplits = async () => {
+      try {
+        const response = await apiService.getUserSplits();
+        console.log("Splits:", response.data);
+
+        const data = response.data;
+        console.log("All Splits:", data);
+
+        setSplits(data);
+      } catch (error) {
+        console.error('Error fetching splits:', error);
+      }
+    };
+
+    fetchSplits();
+  }, []);
 
   return (
     <div className="p-4 pb-20">
@@ -55,7 +78,7 @@ const Home = () => {
           <h2 className="text-md text-gray-50 font-semibold">Recent Splits</h2>
           <button className="text-blue-600 text-sm">See All</button>
         </div>
-        <SplitCard />
+        <SplitCard splits={splits} />
       </div>
 
       <div>

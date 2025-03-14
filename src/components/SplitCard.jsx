@@ -4,26 +4,8 @@ import apiService from '../utils/ApiService';
 import { Link } from 'react-router-dom';
 
 
-const SplitCard = () => {
-    const [splits, setSplits] = useState([]);
+const SplitCard = ({splits}) => {
     const totalBal = 20000
-
-    useEffect(() => {
-        const fetchSplits = async () => {
-            try {
-                const response = await apiService.getUserSplits();
-                console.log("Splits:", response.data);
-                
-                const data = response.data;
-                setSplits(data);
-            } catch (error) {
-                console.error('Error fetching splits:', error);
-            }
-        };
-
-        fetchSplits();
-    }, []);
-
     return (
         <div className="grid grid-cols-2 gap-4">
             {splits.map(split => {

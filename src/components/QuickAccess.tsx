@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const QuickAccess = () => {
     const quickActions =[
         {
@@ -22,7 +24,7 @@ const QuickAccess = () => {
             color: 'bg-green-100 text-green-600'
         },
         {
-            id: 'split',
+            id: 'splits',
             name: 'Split Fund',
             icon: (
                 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 56 56">
@@ -53,15 +55,16 @@ const QuickAccess = () => {
             <h2 className="text-md font-medium text-gray-50 mb-4">Quick Access</h2>
             <div className="grid grid-cols-4 gap-2">
                 {quickActions.map((action) => (
-                    <button
+                    <Link
+                    to={action.id}
                         key={action.id}
-                        className="flex flex-col items-center justify-center rounded-lg transition-all hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-300"
+                        className="flex flex-col items-center justify-center rounded-lg transition-all hover:shadow-md "
                     >
                         <div className={`w-16 h-16 ${action.color} rounded-md p-2 flex items-center justify-center mb-2`}>
                             {action.icon}
                         </div>
                         <span className="text-xs font-normal text-gray-200">{action.name}</span>
-                    </button>
+                    </Link>
                 ))}
             </div>
         </div>

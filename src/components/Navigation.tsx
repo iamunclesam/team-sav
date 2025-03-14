@@ -4,7 +4,7 @@ import { Home, PlusCircle, PieChart, UserCircle } from 'lucide-react';
 
 const Navigation = () => {
   return (
-    <nav className="fixed bottom-2 left-2 right-2 max-w-sm  bg-white rounded-xl shadow-lg border border-gray-100 z-50">
+    <nav className="fixed bottom-2 p-1 left-1 right-1 max-w-[420px] mx-auto bg-white rounded-xl shadow-lg border border-gray-100 z-50">
       <div className="flex justify-between items-center ">
         <NavLink 
           to="/" 
