@@ -28,11 +28,9 @@ const BalanceCard = () => {
       </div>
       
       {/* Wavy line */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 opacity-20">
-        <svg viewBox="0 0 1000 200" xmlns="http://www.w3.org/2000/svg">
-          <path d="M0,100 C150,0 350,200 500,100 C650,0 850,200 1000,100 L1000,200 L0,200 Z" fill="white" />
-        </svg>
-      </div>
+      <div className="absolute bottom-0 right-0 overflow-hidden lg:inset-y-0">
+        <img className="w-auto h-full" src="https://d33wubrfki0l68.cloudfront.net/1e0fc04f38f5896d10ff66824a62e466839567f8/699b5/images/hero/3/background-pattern.png" alt="" />
+    </div>
       
       {/* Content */}
       <div className="relative">
@@ -57,25 +55,20 @@ const BalanceCard = () => {
           </div>
         </h2>
         
-        <div className="p-4 bg-white/10 rounded-xl backdrop-blur-sm">
+        <div className="p-4 pb-1 bg-white/10 rounded-xl backdrop-blur-sm">
           <div className="flex justify-between items-center mb-4">
             <div>
-              <p className="text-xs opacity-80 mb-1">Monthly Income</p>
+              <p className="text-xs opacity-80 ">Monthly Income</p>
               <p className="font-semibold">{showBalance ? '$5,000.00' : '••••••••'}</p>
             </div>
             <div className="w-px h-8 bg-white/20"></div>
             <div>
-              <p className="text-xs opacity-80 mb-1">Allocated</p>
+              <p className="text-xs opacity-80 ">Allocated</p>
               <p className="font-semibold">{showBalance ? '$2,550.00' : '••••••••'}</p>
             </div>
           </div>
           
-          {/* <div className="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
-            <div 
-              className="bg-white h-full rounded-full"
-              style={{ width: `${(2550/5000) * 100}%` }}
-            ></div>
-          </div> */}
+        
         </div>
       </div>
     </div>
