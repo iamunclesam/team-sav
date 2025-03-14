@@ -49,7 +49,7 @@ const Home = () => {
 
       <div className="mb-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg text-gray-50 font-semibold">Recent Splits</h2>
+          <h2 className="text-md text-gray-50 font-semibold">Recent Splits</h2>
           <button className="text-blue-600 text-sm">See All</button>
         </div>
         <SplitCard />

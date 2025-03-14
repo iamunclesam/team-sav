@@ -50,7 +50,7 @@ const QuickAccess = () => {
 
     return (
         <div className="rounded-xl shadow-md mb-6">
-            <h2 className="text-lg font-medium text-gray-50 mb-4">Quick Access</h2>
+            <h2 className="text-md font-medium text-gray-50 mb-4">Quick Access</h2>
             <div className="grid grid-cols-4 gap-2">
                 {quickActions.map((action) => (
                     <button
