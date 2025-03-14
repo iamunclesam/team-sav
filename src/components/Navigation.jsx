@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, PlusCircle, PieChart, UserCircle } from 'lucide-react';
+import { Home, PlusCircle, PieChart, UserCircle, Split } from 'lucide-react';
 
 const Navigation = () => {
   return (
@@ -31,8 +31,8 @@ const Navigation = () => {
           {({ isActive }) => (
             <>
               <div className={`absolute inset-0 rounded-lg transition-all duration-300 ${isActive ? 'bg-green-100 scale-100' : 'bg-transparent scale-0 group-hover:scale-90 group-hover:bg-green-50'}`}></div>
-              <PlusCircle size={24} className="relative z-10 transition-transform duration-300 hover:scale-110" />
-              <span className="text-xs mt-1 font-medium relative z-10">Create</span>
+              <Split size={24} className="relative z-10 transition-transform duration-300 hover:scale-110" />
+              <span className="text-xs mt-1 font-medium relative z-10">Splits</span>
               <span className={`absolute bottom-0 w-8 h-1 rounded-full transition-all duration-300 ${isActive ? 'bg-green-600 scale-100' : 'bg-transparent scale-0'}`}></span>
             </>
           )}

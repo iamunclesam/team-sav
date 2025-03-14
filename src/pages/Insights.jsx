@@ -4,7 +4,7 @@ import { PieChart, BarChart, ArrowUp, ArrowDown } from 'lucide-react';
 const Insights = () => {
   return (
     <div className="p-4 pb-20">
-      <h1 className="text-2xl font-bold mb-6">Insights</h1>
+      <h1 className="text-2xl font-medium mb-6 text-gray-50">Insights</h1>
 
       <div className="space-y-6">
         <div className="bg-white p-4 rounded-xl shadow-sm">
@@ -41,12 +41,13 @@ const Insights = () => {
               </div>
             </div>
           </div>
+          <p className='py-[2px] px-2 mx-auto mt-4 bg-blue-500/20 text-[9px] rounded-full w-fit text-blue-500 hover:bg-blue-500/50 '>See more</p>
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow-sm">
           <h2 className="text-lg font-semibold mb-4 flex items-center">
             <BarChart size={20} className="text-blue-600 mr-2" />
-            Monthly Overview
+            Actions this month
           </h2>
           <div className="space-y-4">
             <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
@@ -64,6 +65,7 @@ const Insights = () => {
               <ArrowDown className="text-red-600" size={24} />
             </div>
           </div>
+          <p className='py-[2px] px-2 mx-auto mt-4 bg-blue-500/20 text-[9px] rounded-full w-fit text-blue-500 hover:bg-blue-500/50 '>See more</p>
         </div>
 
         <div className="bg-white p-4 rounded-xl shadow-sm">
@@ -88,6 +90,7 @@ const Insights = () => {
               </div>
             </div>
           </div>
+          <p className='py-[2px] px-2 mx-auto mt-4 bg-blue-500/20 text-[9px] rounded-full w-fit text-blue-500 hover:bg-blue-500/50 '>See more</p>
         </div>
       </div>
     </div>

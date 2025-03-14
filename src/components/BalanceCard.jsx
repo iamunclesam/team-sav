@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Eye, EyeOff, TrendingUp, Wallet } from 'lucide-react';
-import apiService from '../utils/apiService';
+import apiService from '../utils/ApiService';
 
 const BalanceCard = () => {
     const [showBalance, setShowBalance] = useState(true);
@@ -38,7 +38,7 @@ const BalanceCard = () => {
     }, []);
 
     return (
-        <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-6 rounded-2xl mb-6 shadow-lg">
+        <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-3 rounded-2xl mb-6 shadow-lg">
             {/* Background patterns & effects */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),transparent_60%)]"></div>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
@@ -67,7 +67,7 @@ const BalanceCard = () => {
 
             {/* Content */}
             <div className="relative">
-                <div className="flex justify-between items-center mb-1">
+                <div className="flex gap-4 items-center">
                     <div className="flex items-center">
                         <Wallet size={18} className="mr-2 opacity-80" />
                         <p className="text-sm opacity-80">Pot Total</p>
@@ -80,7 +80,7 @@ const BalanceCard = () => {
                     </button>
                 </div>
 
-                <h2 className="text-3xl font-bold mb-6 flex items-center">
+                <h2 className="text-2xl font-bold mb-6 flex items-center">
                     &#8358;{showBalance ? `${(userBalance || 0).toLocaleString()}` : '••••'}
 
                     {/* <div className="ml-2 text-sm bg-white/20 rounded-full px-2 py-0.5 flex items-center">
