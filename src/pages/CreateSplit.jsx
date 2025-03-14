@@ -3,6 +3,7 @@ import { DollarSign, Users, Lock, Globe, Save, Hand, Eye, EyeOff, ChevronDown, U
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { col } from 'framer-motion/client';
+import apiService from '../utils/ApiService';
 
 
 const CreateSplit = () => {
@@ -41,11 +42,10 @@ const CreateSplit = () => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const response = await axios.get('https://t-savvy-1.onrender.com/api/auth/me', {
-          headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5MDY1NTAsImV4cCI6MTc0MTk5Mjk1MH0.smgHz3xaDpt4ow_HxxpYrGGtZNotqjyHYz1Zk2ZWT80`,
-          },
-        });
+        const response = await apiService.getCurrentUser();
+
+        console.log("Current user:", response.data);
+
         setCurrentUser(response.data); // Store user details in state
       } catch (error) {
         console.error('Error fetching current user:', error);
@@ -118,10 +118,10 @@ const CreateSplit = () => {
 
     try {
       // Make a POST request to your API endpoint
-      const response = await axios.post('https://t-savvy-1.onrender.com/api/splits', splitData, {
+      const response = await axios.post('http://localhost:8000/api/splits', splitData, {
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5MDY1NTAsImV4cCI6MTc0MTk5Mjk1MH0.smgHz3xaDpt4ow_HxxpYrGGtZNotqjyHYz1Zk2ZWT80`,
+
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5NzE2ODUsImV4cCI6MTc0MjA1ODA4NX0.TeBDi--KuJRnXQgHhPSPVSrjPN9LV4aihfW5yWqm-Es`,
         },
       });
 

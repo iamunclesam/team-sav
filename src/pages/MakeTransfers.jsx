@@ -6,28 +6,24 @@ import apiService from '../utils/ApiService';
 const Transfer = () => {
     const [transferType, setTransferType] = useState('internal');
     const [amount, setAmount] = useState('');
-
-    const [splits, setAllSplits] = useState();
-
-    //   const splits = [
-    //     { id: 1, name: 'Rent', balance: 800 },
-    //     { id: 2, name: 'Utilities', balance: 150 },
-    //     { id: 3, name: 'Emergency Fund', balance: 4200 },
-    //     { id: 4, name: 'Vacation', balance: 1200 },
-    //   ];
+    const [splits, setSplits] = useState([]);
 
     useEffect(() => {
-        const fetchAllSplits = async () => {
+        const fetchSplits = async () => {
             try {
-                const res = await apiService.getUserSplits(); // Assuming this API exists
-                console.log(res.data);
-                setAllSplits(res.data);
+                const response = await apiService.getUserSplits();
+                console.log("Splits:", response.data);
+
+                const data = response.data;
+                console.log("All Splits:", data);
+
+                setSplits(data);
             } catch (error) {
-                console.log("Error fetching splits:", error);
+                console.error('Error fetching splits:', error);
             }
         };
 
-        fetchAllSplits();
+        fetchSplits();
     }, []);
 
 
