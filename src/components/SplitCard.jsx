@@ -56,7 +56,7 @@ const SplitCard = () => {
                 const colors = colorMap[split.color];
 
                 return (
-                    <div key={split.id} className={`${colors.bg} p-4 rounded-xl  border-2 ${colors.border} hover:shadow-lg transition-shadow duration-300`}>
+                    <div key={split._id} className={`${colors.bg} p-4 rounded-xl  border-2 ${colors.border} hover:shadow-lg transition-shadow duration-300`}>
                         <div className="flex justify-between items-center gap-1 mb-3">
                             <h3 className="font-medium text-md text-gray-800 truncate">{split.name}</h3>
                             {split.type === 'PUBLIC' && (
