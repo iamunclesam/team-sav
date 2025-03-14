@@ -4,12 +4,12 @@ import ApiRoutes from "./ApiRoutes";
 
 
 const DEMO_URL = "http://localhost:8000/api"
-const LIVE_URL = "https://big-server-4oor.onrender.com/api"
+const LIVE_URL = "hhttps://t-savvy-1.onrender.com/api"
 
 
 // Create an Axios instance
 const apiClient = axios.create({
-    baseURL: DEMO_URL,
+    baseURL: LIVE_URL,
     headers: {
         "Content-Type": "application/json",
     },

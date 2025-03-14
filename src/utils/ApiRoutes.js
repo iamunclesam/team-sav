@@ -1,8 +1,8 @@
 
 const DEMO_URL = "http://localhost:8000/api"
-const LIVE_URL = "https://big-server-4oor.onrender.com/api"
+const LIVE_URL = "https://t-savvy-1.onrender.com/api"
 
-const API_BASE_URL = DEMO_URL;
+const API_BASE_URL = LIVE_URL;
 
 const ApiRoutes = {
     // Authentication
