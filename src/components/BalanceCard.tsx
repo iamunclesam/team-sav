@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff, TrendingUp, Wallet } from 'lucide-react';
+import apiService from '../utils/apiService';
 
 const BalanceCard = () => {
   const [showBalance, setShowBalance] = useState(true);
+
+  const fetchUser = async () => {
+    const res = await apiService.getCurrentUser()
+  }
+
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-6 rounded-2xl mb-6 shadow-lg">

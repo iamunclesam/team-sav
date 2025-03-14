@@ -10,7 +10,10 @@ const Home = () => {
   //   { id: 2, name: 'Utilities', amount: 300, allocated: 150, type: 'private', color: 'green' },
   //   { id: 3, name: 'Community Fund', amount: 5000, allocated: 3500, type: 'public', color: 'purple' },
   //   { id: 4, name: 'Emergency Savings', amount: 2000, allocated: 1200, type: 'private', color: 'orange' }
+
+
   // ];
+
   return (
     <div className="p-4 pb-20">
       <div className="flex items-center justify-between mb-6">

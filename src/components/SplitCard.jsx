@@ -1,10 +1,12 @@
 import { HandCoins, Share2, UsersRound, TrendingUp, PiggyBank, Lock } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import apiService from '../utils/ApiService';
+import { Link } from 'react-router-dom';
 
 
 const SplitCard = () => {
     const [splits, setSplits] = useState([]);
+    const totalBal = 20000
 
     useEffect(() => {
         const fetchSplits = async () => {
@@ -50,12 +52,27 @@ const SplitCard = () => {
                         border: "border-orange-300",
                         progress: "from-orange-500 to-orange-600",
                         text: "text-orange-700"
+                    },
+                    red: {
+                        bg: "bg-red-100",
+                        border: "border-red-300",
+                        progress: "from-red-500 to-red-600",
+                        text: "text-red-700"
+                    },
+                    yellow: {
+                        bg: "bg-yellow-100",
+                        border: "border-yellow-300",
+                        progress: "from-yellow-500 to-yellow-600",
+                        text: "text-yellow-700"
                     }
                 };
 
                 const colors = colorMap[split.color];
 
                 return (
+                    <Link 
+                    key={split._id}
+                    to={`/split/${split._id}`}>
                     <div key={split._id} className={`${colors.bg} p-4 rounded-xl  border-2 ${colors.border} hover:shadow-lg transition-shadow duration-300`}>
                         <div className="flex justify-between items-center gap-1 mb-3">
                             <h3 className="font-medium text-md text-gray-800 truncate">{split.name}</h3>
@@ -85,7 +102,7 @@ const SplitCard = () => {
                             <div className={`h-2 bg-gray-100 border ${colors.border} rounded-full overflow-hidden`}>
                                 <div
                                     className={`h-full bg-gradient-to-r ${colors.progress}  rounded-full transition-all duration-500 ease-in-out`}
-                                    style={{ width: `${Math.min((split.allocatedAmount / split.amount) * 100, 100)}%` }}
+                                    style={{ width: `${Math.min((split.allocatedAmount / totalBal) * 100, 100)}%` }}
                                 ></div>
                             </div>
                         </div>
@@ -103,6 +120,7 @@ const SplitCard = () => {
                             </div>
                         </div>
                     </div>
+                    </Link>
                 );
             })}
         </div>

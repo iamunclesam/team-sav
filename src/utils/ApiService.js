@@ -45,7 +45,7 @@ const apiService = {
     // login: (credentials) => apiClient.post(ApiRoutes.AUTH.LOGIN, credentials),
     // logout: () => apiClient.post(ApiRoutes.AUTH.LOGOUT),
     // resetPassword: (data) => apiClient.post(ApiRoutes.AUTH.RESET_PASSWORD, data),
-    // getCurrentUser: () => apiClient.get(ApiRoutes.AUTH.CURRENT_USER),
+    getCurrentUser: () => apiClient.get(ApiRoutes.AUTH.CURRENT_USER),
 
 
     //SPLITS
