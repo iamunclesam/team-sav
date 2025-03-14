@@ -52,7 +52,7 @@ const AllSplits = () => {
                     <TrendingUp className="text-gray-100" size={20} />
                 </div>
                 <div className='flex gap-2 items-end text-white'>
-                    <p className="text-3xl font-bold text-white">${totalAllocated.toLocaleString()}</p>
+                    <p className="text-3xl font-bold text-white">  &#8358;{totalAllocated.toLocaleString()}</p>
                     <span className="text-xs text-gray-100 font-medium mt-1">Across {filteredSplits.length} splits</span>
                 </div>
             </div>
