@@ -4,7 +4,7 @@ import ApiRoutes from "./ApiRoutes";
 
 
 const DEMO_URL = "http://localhost:8000/api"
-const LIVE_URL = "hhttps://t-savvy-1.onrender.com/api"
+const LIVE_URL = "https://t-savvy-1.onrender.com/api"
 
 
 // Create an Axios instance

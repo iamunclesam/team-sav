@@ -6,11 +6,11 @@ import { TestTubeIcon} from "lucide-react";
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
     // Handle login logic here (API call, Firebase Auth, etc.)

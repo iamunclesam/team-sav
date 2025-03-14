@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { Share2, TrendingUp, ArrowRight, Plus } from 'lucide-react';
-import { Lock, Globe, PiggyBank, HandCoins } from 'lucide-react';
-import SplitCard from '../../components/SplitCard'
-import apiService from '../../utils/apiService.js'
+import SplitCard from '../../components/SplitCard.jsx'
+import apiService from  "../../utils/ApiService.js"
 
 const AllSplits = () => {
     const [activeTab, setActiveTab] = useState('all');

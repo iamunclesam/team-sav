@@ -26,7 +26,7 @@ const BalanceCard = () => {
         const fetchAllSplits = async () => {
             try {
                 const res = await apiService.getUserSplits(); // Assuming this API exists
-                const totalAmount = res.data.reduce((acc: any, split: any) => acc + Number(split.allocatedAmount || 0), 0);
+                const totalAmount = res.data.reduce((acc, split) => acc + Number(split.allocatedAmount || 0), 0);
                 console.log("Total Split Amount:", totalAmount);
                 setTotalSplitAmount(totalAmount);
             } catch (error) {

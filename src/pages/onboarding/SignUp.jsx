@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { TestTubeIcon } from "lucide-react";
-import gif from "../../assets/img/gif.png";
 import { motion } from "framer-motion";
 import {
   Mail,
   Lock,
-  UserCircle,
   UserRound,
   Landmark,
   MapPinIcon,
@@ -29,7 +27,7 @@ const SignUp = () => {
     beneficiary: "",
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -65,7 +63,7 @@ const SignUp = () => {
     setStep((prevStep) => prevStep + 1);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
     // Handle login logic here (API call, Firebase Auth, etc.)

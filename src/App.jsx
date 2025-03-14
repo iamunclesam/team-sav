@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Home from './pages/Home';
-import CreateSplit from './pages/CreateSplit';
-import Insights from './pages/Insights';
-import Profile from './pages/Profile';
-import Login from './pages/onboarding/Login';
-import SignUp from './pages/onboarding/SignUp';
-import Welcome from './pages/onboarding/Welcome';
-import AllSplits from './pages/split/allSplit';
-import SplitDetails from './pages/split/splitDetails';
+import Navigation from './components/Navigation.jsx';
+import Home from './pages/Home.jsx';
+import Insights from './pages/Insights.jsx';
+import Profile from './pages/Profile.jsx';
+import Login from './pages/onboarding/Login.jsx';
+import SignUp from './pages/onboarding/SignUp.jsx';
+import Welcome from './pages/onboarding/Welcome.jsx';
+import SplitDetails from './pages/split/splitDetails.jsx';
+import AllSplits from "./pages/split/allSplits.jsx"
+import CreateSplit from "./pages/CreateSplit.jsx"
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
 function AppWrapper() {
   return (
     <Router>
+      <Toaster />
       <App />
     </Router>
   );
