@@ -1,6 +1,6 @@
 import React from 'react';
 import { Wallet, Share2, TrendingUp, Bell } from 'lucide-react';
-import SplitCard from '../components/SplitCard.js'
+import SplitCard from '../components/SplitCard.jsx'
 import QuickAccess from '../components/QuickAccess.js';
 import BalanceCard from '../components/BalanceCard.js';
 
