@@ -17,7 +17,7 @@ const Home = () => {
           <img src="https://placehold.co/600x400" className='w-10 h-10 rounded-full object-cover' alt="" />
           <h1 className="text-lg text-gray-50  font-medium">Hello, John</h1>
         </div>
-        <div className="text-black">
+        <div className="text-gray-100">
           <Bell size={24} />
         </div>
       </div>
