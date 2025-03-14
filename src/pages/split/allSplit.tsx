@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Share2, TrendingUp, ArrowRight, Plus } from 'lucide-react';
+import { Lock, Globe, PiggyBank, HandCoins } from 'lucide-react';
 import SplitCard from '../../components/SplitCard'
 import apiService from '../../utils/apiService.js'
 
@@ -13,10 +14,10 @@ const AllSplits = () => {
             try {
                 const response = await apiService.getUserSplits();
                 console.log("Splits:", response.data);
-                
+
                 const data = response.data;
                 console.log("All Splits:", data);
-                
+
                 setSplits(data);
             } catch (error) {
                 console.error('Error fetching splits:', error);
@@ -45,9 +46,9 @@ const AllSplits = () => {
 
             {/* Stats Card */}
             <div className="relative bg-blue-600 text-white p-6 rounded-xl shadow-sm mb-8">
-            <div className="absolute bottom-0 right-0 overflow-hidden lg:inset-y-0">
-                <img className="w-auto h-full" src="https://d33wubrfki0l68.cloudfront.net/1e0fc04f38f5896d10ff66824a62e466839567f8/699b5/images/hero/3/background-pattern.png" alt="" />
-            </div>
+                <div className="absolute bottom-0 right-0 overflow-hidden lg:inset-y-0">
+                    <img className="w-auto h-full" src="https://d33wubrfki0l68.cloudfront.net/1e0fc04f38f5896d10ff66824a62e466839567f8/699b5/images/hero/3/background-pattern.png" alt="" />
+                </div>
                 <div className="flex justify-between items-center mb-2">
                     <p className="text-gray-100 font-medium text-sm">Total Allocated</p>
                     <TrendingUp className="text-gray-100" size={20} />
@@ -58,43 +59,19 @@ const AllSplits = () => {
                 </div>
             </div>
 
-            {/* Tab Navigation */}
-            <div className="flex bg-white rounded-lg shadow-sm mb-6 p-1">
-                <button
-                    className={`flex-1 py-1 text-center rounded-md transition-colors ${activeTab === 'all' ? 'bg-blue-600/80 text-sm text-white font-medium' : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                    onClick={() => setActiveTab('all')}
-                >
-                    All
-                </button>
-                <button
-                    className={`flex-1 py-1 text-center rounded-md transition-colors ${activeTab === 'PRIVATE' ? 'bg-blue-600 text-sm text-white font-medium' : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                    onClick={() => setActiveTab('PRIVATE')}
-                >
-                    Private
-                </button>
-                <button
-                    className={`flex-1 py-1 text-center rounded-md text-sm transition-colors ${activeTab === 'PUBLIC' ? 'bg-blue-600 text-white font-medium' : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                    onClick={() => setActiveTab('PUBLIC')}
-                >
-                    Public
-                </button>
-                <button
-                    className={`flex-1 py-1 text-center rounded-md text-sm transition-colors ${activeTab === 'SAVINGS' ? 'bg-blue-600 text-white font-medium' : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                    onClick={() => setActiveTab('SAVINGS')}
-                >
-                    Savings
-                </button>
-                <button
-                    className={`flex-1 py-1 text-center rounded-md text-sm transition-colors ${activeTab === 'LENDING' ? 'bg-blue-600 text-white font-medium' : 'text-gray-600 hover:bg-gray-100'
-                        }`}
-                    onClick={() => setActiveTab('LENDING')}
-                >
-                    Lending
-                </button>
+            <div className="flex bg-transparent border-b border-gray-200 mb-6">
+                {['All', 'Private', 'Public', 'Savings', 'Lending'].map((tab) => (
+                    <button
+                        key={tab}
+                        className={`flex-1 py-3 text-center text-sm font-medium transition-all duration-300 ${activeTab === tab.toLowerCase()
+                                ? 'text-blue-600 border-b-2 border-blue-600'
+                                : 'text-gray-500 hover:text-gray-900'
+                            }`}
+                        onClick={() => setActiveTab(tab.toUpperCase())}
+                    >
+                        {tab}
+                    </button>
+                ))}
             </div>
 
             {/* Splits List */}
@@ -102,7 +79,7 @@ const AllSplits = () => {
 
             {filteredSplits.length === 0 && (
                 <div className="text-center py-12">
-                    <p className="text-gray-500">No {activeTab} splits found</p>
+                    <p className="text-gray-500">No {activeTab.toLowerCase()} splits found</p>
                 </div>
             )}
         </div>

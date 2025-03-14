@@ -29,22 +29,9 @@ apiClient.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
-// Response interceptor to handle errors
-// apiClient.interceptors.response.use(
-//     (response) => response,
-//     async (error) => {
-//         if (error.response && error.response.status === 401) {
-//             console.warn("Unauthorized response detected");
-//         }
-//     }
-// );
 
 const apiService = {
-    // Authentication
-    // signup: (userData) => apiClient.post(ApiRoutes.AUTH.SIGNUP, userData),
-    // login: (credentials) => apiClient.post(ApiRoutes.AUTH.LOGIN, credentials),
-    // logout: () => apiClient.post(ApiRoutes.AUTH.LOGOUT),
-    // resetPassword: (data) => apiClient.post(ApiRoutes.AUTH.RESET_PASSWORD, data),
+
     getCurrentUser: () => apiClient.get(ApiRoutes.AUTH.CURRENT_USER),
 
 
