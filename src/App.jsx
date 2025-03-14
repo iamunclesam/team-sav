@@ -31,6 +31,7 @@ function App() {
         <Route path="/split/:id" element={<SplitDetails />} />
         <Route path="/transfer" element={<MakeTransfer />} />
       </Routes>
+     
       {!hideNavigation && <Navigation />}
     </div>
   );
