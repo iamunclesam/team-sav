@@ -9,7 +9,7 @@ const LIVE_URL = "https://t-savvy-1.onrender.com/api"
 
 // Create an Axios instance
 const apiClient = axios.create({
-    baseURL: LIVE_URL,
+    baseURL: DEMO_URL,
     headers: {
         // "Content-Type": "application/json",
     },
@@ -20,7 +20,7 @@ apiClient.interceptors.request.use(
     (config) => {
         // Check if running on the client side
 
-        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5NzE2ODUsImV4cCI6MTc0MjA1ODA4NX0.TeBDi--KuJRnXQgHhPSPVSrjPN9LV4aihfW5yWqm-Es" // Access localStorage only on the client
+        const token = localStorage.getItem('token') // Access localStorage only on the client
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
@@ -36,7 +36,9 @@ const apiService = {
 
 
     //SPLITS
-    getUserSplits: () => apiClient.get(ApiRoutes.SPLIT.GET_USER_SPLITS)
+    getUserSplits: () => apiClient.get(ApiRoutes.SPLIT.GET_USER_SPLITS),
+    makeExternalSplitTransfer: (data) => apiClient.post(ApiRoutes.SPLIT.EXTERNAL_SPLIT_TRANSFER, data),
+    makeInternalSplitTransfer: (data) => apiClient.post(ApiRoutes.SPLIT.INTERNAL_SPLIT_TRANSFER, data)
 
 };
 

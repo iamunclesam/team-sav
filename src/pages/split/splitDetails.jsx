@@ -11,10 +11,11 @@ const SplitDetails = () => {
 
   const fetchSplitDetails = async () => {
     try {
+      const token = localStorage.getItem('token') 
       const response = await axios.get(`https://t-savvy-1.onrender.com/api/splits/${splitId}/split`,
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5NzE1NDMsImV4cCI6MTc0MjA1Nzk0M30.8LTJHY5lcABVoXG-2zj-FFXFAqLPFRr47UT_Z2ivu-w`, // Attach token to request
+            Authorization: `Bearer ${token}`, // Attach token to request
           },
         }
       );
