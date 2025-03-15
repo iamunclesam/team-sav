@@ -10,22 +10,40 @@ import {
   Calendar,
   Phone,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false); // Loading state for transfers
+
+  const generateCustomerIdentifier = (firstName, bvn) => {
+    if (!firstName || !bvn) {
+      throw new Error("First name and BVN are required.");
+    }
+
+    const cleanFirstName = firstName.trim().toLowerCase().replace(/[^a-z]/g, "");
+    if (!/^\d{11}$/.test(bvn)) {
+      throw new Error("Invalid BVN. Must be exactly 11 digits.");
+    }
+
+    return `${cleanFirstName}-${bvn}`;
+  };
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
-    phoneNumber: "",
+    mobileNumber: "",
     bvn: "",
-    dob: "",
+    dateOfBirth: "",
     address: "",
     gender: "",
-    beneficiary: "",
+    beneficiaryAccount: "",
+    // customerIdentifier: "CCC123"
   });
 
   const handleChange = (e) => {
@@ -51,9 +69,9 @@ const SignUp = () => {
   const handleNextStep = () => {
     // Check if all required fields are filled
     if (
-      !formData.phoneNumber ||
+      !formData.mobileNumber ||
       !formData.bvn ||
-      !formData.dob ||
+      !formData.dateOfBirth ||
       !formData.address
     ) {
       alert("Please fill in all fields before proceeding.");
@@ -64,30 +82,41 @@ const SignUp = () => {
     setStep((prevStep) => prevStep + 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
     // Handle login logic here (API call, Firebase Auth, etc.)
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      phoneNumber: "",
-      bvn: "",
-      dob: "",
-      address: "",
-      gender: "",
-      beneficiary: "",
-    });
+    setIsLoading(true);
+    try {
+      const response = await axios.post('https://t-savvy-1.onrender.com/api/auth/register', formData);
+      toast.success("Registration Successful")
+      localStorage.setItem('token', response.data.token)
+      navigate('/login')
+    } catch (error) {
+      toast.error("Registration Failed")
+      console.error(error)
+      setIsLoading(false);
+    }
+
+    // setFormData({
+    //   firstName: "",
+    //   lastName: "",
+    //   email: "",
+    //   password: "",
+    //   mobileNumber: "",
+    //   bvn: "",
+    //   dateOfBirth: "",
+    //   address: "",
+    //   gender: "",
+    //   beneficiaryAccount: "",
+    // });
   };
 
   return (
     <div className="h-fit bg-[#023047] max-w-[460px]  flex flex-col justify-between rounded-tl-[60px] px-6 ">
       <div
-        className={`h-1 bg-[#fb8500] fixed top-0 left-0 w-0  transition-all duration-500 delay-200   ${
-          step === 1 ? "w-1/4" : step === 2 ? "w-3/4" : "w-4/4"
-        }`}
+        className={`h-1 bg-[#fb8500] fixed top-0 left-0 w-0  transition-all duration-500 delay-200   ${step === 1 ? "w-1/4" : step === 2 ? "w-3/4" : "w-4/4"
+          }`}
       ></div>
 
       <motion.div
@@ -175,14 +204,14 @@ const SignUp = () => {
               <div className="space-y-3">
                 {/* Phone Number Field */}
                 <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
-                  <label htmlFor="phoneNumber" className="font-semibold">
+                  <label htmlFor="mobileNumber" className="font-semibold">
                     Phone Number
                   </label>
                   <input
                     type="tel"
-                    name="phoneNumber"
+                    name="mobileNumber"
                     className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
-                    value={formData.phoneNumber}
+                    value={formData.mobileNumber}
                     onChange={handleChange}
                     required
                   />
@@ -203,16 +232,16 @@ const SignUp = () => {
                   />
                 </div>
 
-                {/* DOB Field */}
+                {/* dateOfBirth Field */}
                 <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
-                  <label htmlFor="dob" className="font-semibold">
+                  <label htmlFor="dateOfBirth" className="font-semibold">
                     Date of birth
                   </label>
                   <input
                     type="date"
-                    name="dob"
+                    name="dateOfBirth"
                     className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
-                    value={formData.dob}
+                    value={formData.dateOfBirth}
                     onChange={handleChange}
                     required
                   />
@@ -257,21 +286,21 @@ const SignUp = () => {
                     <option value="" disabled>
                       Select Gender
                     </option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
                   </select>
                 </div>
 
-                {/* Beneficiary Field */}
+                {/* beneficiaryAccount Field */}
                 <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
-                  <label htmlFor="beneficiary" className="font-semibold">
-                    Beneficiary Account (GTB)
+                  <label htmlFor="beneficiaryAccount" className="font-semibold">
+                    beneficiaryAccount Account (GTB)
                   </label>
                   <input
                     type="text"
-                    name="beneficiary"
+                    name="beneficiaryAccount"
                     className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
-                    value={formData.beneficiary}
+                    value={formData.beneficiaryAccount}
                     onChange={handleChange}
                     required
                   />
@@ -293,7 +322,7 @@ const SignUp = () => {
         </div>
       </motion.div>
 
-      <p className="mx-auto text-sm text-gray-50 mb-2">Already have an account? <Link to="login"    className="hover:underline">Log In</Link></p>
+      <p className="mx-auto text-sm text-gray-50 mb-2">Already have an account? <Link to="login" className="hover:underline">Log In</Link></p>
     </div>
   );
 };
