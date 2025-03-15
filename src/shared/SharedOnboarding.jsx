@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import OnboardingLayer from "./onboardingLayer";
+import OnboardingLayer from "./OnboardingLayer";
 import { TestTubeIcon } from "lucide-react";
 
 const SharedOnboarding = () => {
