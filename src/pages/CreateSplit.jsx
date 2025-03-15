@@ -117,11 +117,12 @@ const CreateSplit = () => {
     );
 
     try {
+      const token = localStorage.getItem('token') 
       // Make a POST request to your API endpoint
       const response = await axios.post('https://t-savvy-1.onrender.com/api/splits', splitData, {
         headers: {
 
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5NzE2ODUsImV4cCI6MTc0MjA1ODA4NX0.TeBDi--KuJRnXQgHhPSPVSrjPN9LV4aihfW5yWqm-Es`,
+          Authorization: `Bearer ${token}`,
         },
       });
 

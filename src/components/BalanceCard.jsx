@@ -5,6 +5,7 @@ import apiService from '../utils/ApiService';
 const BalanceCard = () => {
     const [showBalance, setShowBalance] = useState(true);
     const [userBalance, setUserBalance] = useState(null);
+    const [userAccountNumber, setAccountNumber] = useState(null);
     const [totalSplitAmount, setTotalSplitAmount] = useState(0);
 
     useEffect(() => {
@@ -18,6 +19,19 @@ const BalanceCard = () => {
                 console.log("Error fetching Balance:", error);
             }
         };
+
+        const fetchUserAccount = async () => {
+            try {
+                const res = await apiService.getCurrentUser();
+                const userBal = res.data.virtualAccountNumber;
+                console.log(userBal);
+                setAccountNumber(userBal);
+            } catch (error) {
+                console.log("Error fetching Balance:", error);
+            }
+        };
+
+        fetchUserAccount()
 
         fetchUser();
     }, []);
@@ -79,6 +93,8 @@ const BalanceCard = () => {
                         {showBalance ? <EyeOff size={16} /> : <Eye size={16} />}
                     </button>
                 </div>
+
+                <h1 className="text-xl text-blue-900">{userAccountNumber}</h1>
 
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
                     &#8358;{showBalance ? `${(userBalance || 0).toLocaleString()}` : '••••'}

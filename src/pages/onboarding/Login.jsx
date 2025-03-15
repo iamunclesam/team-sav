@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Mail, Lock, UserCircle } from "lucide-react";
 import googleLogo from "../../assets/google.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({ email: "", password: "" });
-
+  const [isLoading, setIsLoading] = useState(false); // Loading state for transfers
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Login Data:", formData);
     // Handle login logic here (API call, Firebase Auth, etc.)
+    setIsLoading(true);
+    try {
+      const response = await axios.post('https://t-savvy-1.onrender.com/api/auth/login', formData);
+      localStorage.setItem('token', response.data.token);
+      toast.success("Login successful")
+      navigate('/home')
+    } catch (error) {
+      console.error("Error logging in");
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -72,15 +85,18 @@ const Login = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none  transition mt-6"
+              className={`w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none transition mt-6 
+    ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+              disabled={isLoading}
             >
-              Next
+              {isLoading ? "Logging in..." : "Login"}
             </button>
+
           </form>
         </div>
       </div>
 
-      <p className="mx-auto text-sm text-gray-50 mb-2">Dont't have an account? <Link to="signup"    className="hover:underline">Sign Up</Link></p>
+      <p className="mx-auto text-sm text-gray-50 mb-2">Dont't have an account? <Link to="signup" className="hover:underline">Sign Up</Link></p>
     </div>
   );
 };

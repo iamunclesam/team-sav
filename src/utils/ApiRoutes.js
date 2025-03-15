@@ -1,3 +1,4 @@
+import { split } from "postcss/lib/list";
 
 const DEMO_URL = "http://localhost:8000/api"
 const LIVE_URL = "https://t-savvy-1.onrender.com/api"
@@ -15,7 +16,9 @@ const ApiRoutes = {
     },
 
     SPLIT: {
-        GET_USER_SPLITS: `${API_BASE_URL}/splits`
+        GET_USER_SPLITS: `${API_BASE_URL}/splits`,
+        EXTERNAL_SPLIT_TRANSFER: `${API_BASE_URL}/splits/transfer-to-other-split`,
+        INTERNAL_SPLIT_TRANSFER: `${API_BASE_URL}/splits/transfer`,
     }
 };
 
