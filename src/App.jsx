@@ -20,9 +20,10 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 max-w-md mx-auto relative">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Login />}>
+        </Route>
         <Route path="/create" element={<CreateSplit />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/insights" element={<Insights />} />
