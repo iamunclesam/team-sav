@@ -9,7 +9,7 @@ const LIVE_URL = "https://t-savvy-1.onrender.com/api"
 
 // Create an Axios instance
 const apiClient = axios.create({
-    baseURL: LIVE_URL,
+    baseURL: DEMO_URL,
     headers: {
         // "Content-Type": "application/json",
     },
