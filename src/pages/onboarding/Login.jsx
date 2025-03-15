@@ -25,6 +25,7 @@ const Login = () => {
       navigate('/home')
     } catch (error) {
       console.error("Error logging in");
+      toast.error("Error logging in. Please check your internet")
       setIsLoading(false);
     }
   };
@@ -96,7 +97,7 @@ const Login = () => {
         </div>
       </div>
 
-      <p className="mx-auto text-sm text-gray-50 mb-2">Dont't have an account? <Link to="signup" className="hover:underline">Sign Up</Link></p>
+      <p className="mx-auto text-sm text-gray-50 mb-2">Dont't have an account? <Link to="/signup" className="hover:underline">Sign Up</Link></p>
     </div>
   );
 };

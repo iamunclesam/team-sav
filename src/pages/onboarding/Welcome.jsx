@@ -112,10 +112,10 @@ const Welcome = () => {
       <div className="  px-4 mt-5">
         <div className="flex justify-center gap-3 items-center w-full">
           <button className="bg-[#fb8500] text-white w-full py-3 rounded-full">
-            <Link to="/login">Login</Link>
+            <Link to="login">Login</Link>
           </button>
           <button className=" text-[#fb8500] bg-gray-900 w-full py-3 rounded-full">
-            <Link to="/signup"> Sign Up</Link>
+            <Link to="signup"> Sign Up</Link>
           </button>
         </div>
       </div>

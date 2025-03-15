@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Wallet, Share2, TrendingUp, Bell } from 'lucide-react';
+import { Wallet, Share2, TrendingUp, Bell, User, UserCircle } from 'lucide-react';
 import SplitCard from '../components/SplitCard.jsx'
 import QuickAccess from '../components/QuickAccess.jsx';
 import BalanceCard from '../components/BalanceCard.jsx';
@@ -18,9 +18,11 @@ const Home = () => {
   // ];
 
   const [splits, setSplits] = useState([]);
+  const [splitLoading, setSplitsLoading] = useState(false);
 
   useEffect(() => {
     const fetchSplits = async () => {
+      setSplitsLoading(true);
       try {
         const response = await apiService.getUserSplits();
         console.log("Splits:", response.data);
@@ -32,6 +34,7 @@ const Home = () => {
       } catch (error) {
         console.error('Error fetching splits:', error);
       }
+      setSplitsLoading(false)
     };
 
     fetchSplits();
@@ -41,7 +44,7 @@ const Home = () => {
     <div className="p-4 pb-20">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
-          <img src="https://plus.unsplash.com/premium_photo-1723204814857-f72033f99e30?q=80&w=2028&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" className='w-10 h-10 rounded-full object-cover border-white border' alt="" />
+          <UserCircle size={40} className="text-gray-50" />
           <h1 className="text-lg text-gray-50  font-medium">Hello, Samuel</h1>
         </div>
         <div className="text-gray-100">
