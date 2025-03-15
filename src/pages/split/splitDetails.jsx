@@ -4,7 +4,7 @@ import { Users, Clock, ArrowUpCircle, TrendingUp, Copy, ArrowDownCircle, Wallet 
 import axios from 'axios';
 
 const SplitDetails = () => {
-  const { splitId } = useParams(); // Get splitId from URL params
+  const  splitId = useParams(); 
   const [split, setSplitDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,7 +14,7 @@ const SplitDetails = () => {
       const response = await axios.get(`https://t-savvy-1.onrender.com/api/splits/${splitId}/split`,
         {
           headers: {
-            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5NzE2ODUsImV4cCI6MTc0MjA1ODA4NX0.TeBDi--KuJRnXQgHhPSPVSrjPN9LV4aihfW5yWqm-Es`, // Attach token to request
+            Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2N2QzNjI1Zjg2YmU4MDc3NzBlZTBmYjUiLCJpYXQiOjE3NDE5NzE1NDMsImV4cCI6MTc0MjA1Nzk0M30.8LTJHY5lcABVoXG-2zj-FFXFAqLPFRr47UT_Z2ivu-w`, // Attach token to request
           },
         }
       );
@@ -29,6 +29,8 @@ const SplitDetails = () => {
   };
 
   useEffect(() => {
+    console.log(splitId);
+    
     if (splitId) {
       fetchSplitDetails();
     }
@@ -130,13 +132,13 @@ const SplitDetails = () => {
           <div>
             <div className="flex justify-between items-center mb-1">
               <span className="text-gray-600">Monthly Growth</span>
-              <span className="text-green-600">+{split.monthlyGrowth}%</span>
+              {/* <span className="text-green-600">+{split.monthlyGrowth}%</span> */}
             </div>
             <div className="h-2 bg-gray-100 rounded-full">
-              <div
+              {/* <div
                 className="h-2 bg-green-500 rounded-full"
                 style={{ width: `${split.monthlyGrowth * 2}%` }}
-              ></div>
+              ></div> */}
             </div>
           </div>
           <div className="flex justify-between text-sm pt-2 border-t">
@@ -145,7 +147,7 @@ const SplitDetails = () => {
           </div>
           <div className="flex justify-between text-sm">
             <span className="text-gray-600">Average Contribution</span>
-            <span className="font-medium">${split.averageContribution || 400}</span>
+            {/* <span className="font-medium">${split.averageContribution || 400}</span> */}
           </div>
         </div>
       </div>
