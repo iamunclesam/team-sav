@@ -1,36 +1,38 @@
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { TestTubeIcon } from "lucide-react";
 
 
 const Welcome = () => {
 
-    const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    const images = [
-      "https://img.freepik.com/premium-photo/credit-card-smartphone-business-black-woman-with-fintech-online-easy-payment-loan-application-digital-banking-ecommerce-online-shopping-website-corporate-worker-check-credit-score_590464-88801.jpg?ga=GA1.1.384133121.1729851340&semt=ais_authors_boost",
-      "https://img.freepik.com/free-vector/fintech-word-concept_23-2147839481.jpg?ga=GA1.1.384133121.1729851340&semt=ais_authors_boost",
-      "https://img.freepik.com/premium-psd/cyber-security-online-financial-manage-safety-check-mark_469703-328.jpg?ga=GA1.1.384133121.1729851340&semt=ais_authors_boost",
-      "https://img.freepik.com/free-photo/payment-solutions-financial-technology-with-businessman-using-tablet-background_53876-104203.jpg?ga=GA1.1.384133121.1729851340&semt=ais_authors_boost",
-      "https://img.freepik.com/premium-vector/3d-money-protection-shield-with-purse-isolated-blue-background-money-protection-concept-cash-secure-investment-online-payment-protection-money-security-financial-saving-insurance_221648-1259.jpg?w=826",
-    ];
-  
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 2000); // Auto-slide every 2 seconds
-  
-      return () => clearInterval(interval);
-    }, [images.length]);
-  
-    const prevSlide = () => {
-      setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    };
-  
-    const nextSlide = () => {
+  const images = [
+    "https://images.unsplash.com/photo-1635766854982-fc151c6e9278?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aGFwcHklMjBidXNpbmVzcyUyMGVudGVycHJlbmV1cnxlbnwwfHwwfHx8MA%3D%3D",
+
+
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aGFwcHklMjBidXNpbmVzcyUyMHN0b3JlJTIwb3duZXJ8ZW58MHx8MHx8fDA%3D",
+
+
+    "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aGFwcHklMjBidXNpbmVzcyUyMHN0b3JlJTIwb3duZXJ8ZW58MHx8MHx8fDA%3D",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
-    };
-  
+    }, 2000); // Auto-slide every 2 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const prevSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
   return (
     <div className="h-fit bg-[#023047] max-w-[460px]  flex flex-col justify-between rounded-tl-[60px] px-6 py-12">
       <div className="mx-3">
@@ -40,13 +42,12 @@ const Welcome = () => {
             {images.map((src, index) => (
               <div
                 key={index}
-                className={`absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 h-80 ${
-                  index === activeIndex ? "opacity-100" : "opacity-0"
-                }`}
+                className={`absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 transition-opacity duration-700 h-80 ${index === activeIndex ? "opacity-100" : "opacity-0"
+                  }`}
               >
                 <img
                   src={src}
-                  className="block w-full h-full"
+                  className="block w-full object-cover h-full"
                   alt={`Slide ${index + 1}`}
                 />
               </div>

@@ -4,6 +4,7 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import { col } from 'framer-motion/client';
 import apiService from '../utils/ApiService';
+import { useNavigate } from 'react-router-dom';
 
 
 const CreateSplit = () => {
@@ -16,7 +17,10 @@ const CreateSplit = () => {
   const [duration, setDuration] = useState(0);
   const [allowInstallment, setAllowInstallment] = useState(false);
   const [latePaymentFee, setLatePaymentFee] = useState(0);
-  const [selectedRange, setSelectedRange] = useState('7-60'); // Default range
+  const [selectedRange, setSelectedRange] = useState
+  ('7-60'); // Default range
+
+  const navigate = useNavigate()
   const [selectedDuration, setSelectedDuration] = useState(7);
 
   const [currentUser, setCurrentUser] = useState(null);
@@ -130,6 +134,7 @@ const CreateSplit = () => {
       console.log('API Response:', response.data);
       toast.success('Split created successfully!');
       // Optionally, reset the form or redirect the user
+      navigate('/home')
     } catch (error) {
       // Handle errors
       console.error('Error submitting split data:', error);
