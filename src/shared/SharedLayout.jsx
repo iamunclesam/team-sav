@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation";
 
 const SharedLayout = () => {
   return (
-    <div>
+    <div className="min-h-screen bg-gray-900">
       <Outlet />
       <Navigation />
     </div>
