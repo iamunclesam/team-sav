@@ -10,6 +10,7 @@ import {
   Calendar,
   Phone,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [step, setStep] = useState(1);
@@ -82,37 +83,34 @@ const SignUp = () => {
   };
 
   return (
-    <div className="min-h-screen  bg-[#023047] max-w-[460px]  flex flex-col justify-between  ">
+    <div className="h-fit bg-[#023047] max-w-[460px]  flex flex-col justify-between rounded-tl-[60px] px-6 ">
       <div
         className={`h-1 bg-[#fb8500] fixed top-0 left-0 w-0  transition-all duration-500 delay-200   ${
           step === 1 ? "w-1/4" : step === 2 ? "w-3/4" : "w-4/4"
         }`}
       ></div>
-      <div className="text-center font-semibold text-xl text-white py-5 flex justify-center items-center gap-2">
-        <TestTubeIcon color="#fb8500" />
-        <p>
-          Split<span className="text-[#fb8500]">Wise</span>
-        </p>
-      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 50 }} // Start position (invisible, 50px below)
         animate={{ opacity: 1, y: 0 }} // End position (fully visible, normal position)
         transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
       >
-        <p className="text-xl font-semibold pb-3 text-center">Register Now</p>
-        <div className="w-full max-w-md bg-cyan-900 p-3 rounded-t-xl shadow-md py-5">
+        <p className="text-3xl font-semibold text-gray-50 pb-3 p-6 text-center">
+          Sign Up
+        </p>
+        <div className="w-full max-w-md p-3 rounded-t-xl shadow-md py-5">
           <form onSubmit={handleSubmit} className="space-y-3">
             {step === 1 ? (
               <div className="space-y-3">
                 {/* First Name Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <UserRound className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="firstname" className="font-semibold">
+                    Firstname
+                  </label>
                   <input
                     type="text"
                     name="firstName"
-                    placeholder="Enter your first name"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.firstName}
                     onChange={handleChange}
                     required
@@ -120,13 +118,14 @@ const SignUp = () => {
                 </div>
 
                 {/* Last Name Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <UserRound className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="lastname" className="font-semibold">
+                    Lastname
+                  </label>
                   <input
                     type="text"
                     name="lastName"
-                    placeholder="Enter your last name"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.lastName}
                     onChange={handleChange}
                     required
@@ -134,13 +133,14 @@ const SignUp = () => {
                 </div>
 
                 {/* Email Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <Mail className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="email" className="font-semibold">
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
-                    placeholder="Enter your email"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.email}
                     onChange={handleChange}
                     required
@@ -148,13 +148,14 @@ const SignUp = () => {
                 </div>
 
                 {/* Password Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <Lock className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="password" className="font-semibold">
+                    Password
+                  </label>
                   <input
                     type="password"
                     name="password"
-                    placeholder="Enter your password"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.password}
                     onChange={handleChange}
                     required
@@ -164,7 +165,7 @@ const SignUp = () => {
                 {/* Next Button */}
                 <button
                   type="button"
-                  className="w-full bg-[#fb8500] text-white py-3 rounded-full transition"
+                  className="w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none transition mt-6"
                   onClick={handleNext}
                 >
                   Next
@@ -173,13 +174,14 @@ const SignUp = () => {
             ) : step === 2 ? (
               <div className="space-y-3">
                 {/* Phone Number Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <Phone className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="phoneNumber" className="font-semibold">
+                    Phone Number
+                  </label>
                   <input
-                    type="text"
+                    type="tel"
                     name="phoneNumber"
-                    placeholder="Enter your phone number"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.phoneNumber}
                     onChange={handleChange}
                     required
@@ -187,13 +189,14 @@ const SignUp = () => {
                 </div>
 
                 {/* BVN Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <Landmark className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="bvn" className="font-semibold">
+                    BVN
+                  </label>
                   <input
                     type="text"
                     name="bvn"
-                    placeholder="Enter your bvn"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.bvn}
                     onChange={handleChange}
                     required
@@ -201,13 +204,14 @@ const SignUp = () => {
                 </div>
 
                 {/* DOB Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <Calendar className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="dob" className="font-semibold">
+                    Date of birth
+                  </label>
                   <input
                     type="date"
                     name="dob"
-                    placeholder="Enter your DOB"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.dob}
                     onChange={handleChange}
                     required
@@ -215,13 +219,15 @@ const SignUp = () => {
                 </div>
 
                 {/* Address Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <MapPinIcon className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="address" className="font-semibold">
+                    Address
+                  </label>
                   <input
                     type="text"
                     name="address"
                     placeholder="Enter your address"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.address}
                     onChange={handleChange}
                     required
@@ -231,7 +237,7 @@ const SignUp = () => {
                 {/* Next Button */}
                 <button
                   type="button"
-                  className="w-full bg-[#fb8500] text-white py-3 rounded-full transition"
+                  className="w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none  transition mt-6"
                   onClick={handleNextStep}
                 >
                   Next
@@ -241,10 +247,9 @@ const SignUp = () => {
               <div className="space-y-3">
                 {/* Gender field */}
                 <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <UserRound className="text-gray-500 ml-2" />
                   <select
                     name="gender"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black font-semibold"
                     value={formData.gender}
                     onChange={handleChange}
                     required
@@ -258,13 +263,14 @@ const SignUp = () => {
                 </div>
 
                 {/* Beneficiary Field */}
-                <div className="flex items-center p-2 bg-gray-200 rounded-lg">
-                  <MapPinIcon className="text-gray-500 ml-2" />
+                <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
+                  <label htmlFor="beneficiary" className="font-semibold">
+                    Beneficiary Account (GTB)
+                  </label>
                   <input
                     type="text"
                     name="beneficiary"
-                    placeholder="Enter your beneficiary account (GTB)"
-                    className="w-full p-2 bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
+                    className="w-full bg-transparent border-none outline-none focus:outline-none focus:ring-0 text-black"
                     value={formData.beneficiary}
                     onChange={handleChange}
                     required
@@ -274,7 +280,7 @@ const SignUp = () => {
                 {/* Next Button */}
                 <button
                   type="button"
-                  className="w-full bg-[#fb8500] text-white py-3 rounded-full transition"
+                  className="w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none transition mt-6"
                   onClick={handleSubmit}
                 >
                   Submit
@@ -286,6 +292,8 @@ const SignUp = () => {
           </form>
         </div>
       </motion.div>
+
+      <p className="mx-auto text-sm text-gray-50 mb-2">Already have an account? <Link to="login"    className="hover:underline">Log In</Link></p>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Mail, Lock, UserCircle } from "lucide-react";
 import googleLogo from "../../assets/google.svg";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -16,16 +17,16 @@ const Login = () => {
   };
 
   return (
-    <div className="h-fit  bg-[#023047] max-w-[460px]  flex flex-col justify-between rounded-tl-[60px] px-6">
+    <div className="h-fit bg-[#023047] max-w-[460px]  flex flex-col justify-between rounded-tl-[60px] px-6">
       <div className=" pt-5">
         <div className="text-center">
           <p className="text-3xl font-semibold text-gray-50 pb-3 p-6">Login</p>
         </div>
 
         <div className="w-full max-w-md p-4 rounded-t-xl shadow-md">
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="">
             {/* Email Field */}
-            <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md">
+            <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
               <label htmlFor="email" className="font-semibold">
                 Email
               </label>
@@ -40,7 +41,7 @@ const Login = () => {
             </div>
 
             {/* Password Field */}
-            <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md">
+            <div className="flex p-2 px-4 bg-gray-200 rounded-lg flex-col shadow-md mb-4">
               <label htmlFor="password" className="font-semibold">
                 Password
               </label>
@@ -71,13 +72,15 @@ const Login = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none  transition font-sans"
+              className="w-full bg-[#fb8500] text-white py-3 rounded-2xl rounded-tr-none  transition mt-6"
             >
               Next
             </button>
           </form>
         </div>
       </div>
+
+      <p className="mx-auto text-sm text-gray-50 mb-2">Dont't have an account? <Link to="signup"    className="hover:underline">Sign Up</Link></p>
     </div>
   );
 };

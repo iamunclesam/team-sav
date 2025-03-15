@@ -15,7 +15,7 @@ import Welcome from "./pages/onboarding/Welcome.jsx";
 import SplitDetails from "./pages/split/splitDetails.jsx";
 import AllSplits from "./pages/split/allSplits.jsx";
 import CreateSplit from "./pages/CreateSplit.jsx";
-import MakeTransfer from "./pages/MakeTransfers.jsx";
+import MakeTransfer from "./pages/split/MakeTransfers.jsx";
 import { Toaster } from "react-hot-toast";
 
 import SharedLayout from "./shared/SharedLayout.jsx";
@@ -28,25 +28,25 @@ function App() {
   );
 
   return (
-    // min-h-screen bg-gray-900 
-    <div className="max-w-md mx-auto relative"> 
+    // min-h-screen bg-gray-900
+    <div className="max-w-md mx-auto relative">
       <Routes>
         <Route path="/" element={<SharedOnboarding />}>
-          <Route index element={<Login />} />
+          <Route index element={<Welcome />} />
+          <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
         </Route>
 
-        
         <Route path="/home" element={<SharedLayout />}>
           <Route index element={<Home />} />
-          <Route path="create" element={<CreateSplit />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="welcome" element={<Welcome />} />
-          <Route path="insights" element={<Insights />} />
-          <Route path="profile" element={<Profile />} />
+
           <Route path="splits" element={<AllSplits />} />
-          <Route path="split/:id" element={<SplitDetails />} />
-          <Route path="transfer" element={<MakeTransfer />} />
+          <Route path="splits/:id" element={<SplitDetails />} />
+          <Route path="splits/create" element={<CreateSplit />} />
+          <Route path="splits/transfer" element={<MakeTransfer />} />
+
+          <Route path="profile" element={<Profile />} />
+          <Route path="insights" element={<Insights />} />
         </Route>
       </Routes>
     </div>
