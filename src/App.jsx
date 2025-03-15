@@ -28,15 +28,15 @@ function App() {
   );
 
   return (
-    // min-h-screen bg-gray-900 
-    <div className="max-w-md mx-auto relative"> 
+    // min-h-screen bg-gray-900
+    <div className="max-w-md mx-auto relative">
       <Routes>
         <Route path="/" element={<SharedOnboarding />}>
-          <Route index element={<Login />} />
+          <Route index element={<Welcome />} />
+          <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
         </Route>
 
-        
         <Route path="/home" element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path="create" element={<CreateSplit />} />
