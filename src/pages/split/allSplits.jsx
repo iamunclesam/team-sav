@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Share2, TrendingUp, ArrowRight, Plus } from "lucide-react";
+import { Share2, TrendingUp, ArrowRight, Plus, Loader } from "lucide-react";
 import SplitCard from "../../components/SplitCard.jsx";
 import apiService from "../../utils/ApiService.js";
 import { Link, useNavigate } from "react-router-dom";
 
 const AllSplits = () => {
-  const [activeTab, setActiveTab] = useState("all");
+  const [activeTab, setActiveTab] = useState("private");
   const [splits, setSplits] = useState([]);
   const [splitsLoading, setSplitsLoading] = useState(false);
   const navigate = useNavigate();
@@ -106,7 +106,9 @@ const AllSplits = () => {
       {filteredSplits.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500">
-            No {activeTab.toLowerCase()} splits found
+            No{" "}
+            {activeTab.toLowerCase() === "all" ? "" : activeTab.toLowerCase()}{" "}
+            splits found
           </p>
         </div>
       )}

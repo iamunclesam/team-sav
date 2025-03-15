@@ -293,7 +293,7 @@ const SignUp = () => {
         </div>
       </motion.div>
 
-      <p className="mx-auto text-sm text-gray-50 mb-2">Already have an account? <Link to="login"    className="hover:underline">Log In</Link></p>
+      <p className="mx-auto text-sm text-gray-50 mb-2">Already have an account? <Link to="/login"    className="hover:underline">Log In</Link></p>
     </div>
   );
 };

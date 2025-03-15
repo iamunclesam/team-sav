@@ -5,7 +5,7 @@ import { TestTubeIcon } from "lucide-react";
 
 const SharedOnboarding = () => {
   return (
-    <div className="max-w-md mx-auto relative">
+    <div className="max-w-md mx-auto relative max-h-screen">
       <OnboardingLayer />
       <div className="flex flex-col min-h-screen">
         <div className="text-center font-semibold text-xl text-white py-5 flex justify-center items-center gap-2 flex-grow">

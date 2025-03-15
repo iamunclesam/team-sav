@@ -26,7 +26,7 @@ const QuickAccess = () => {
       color: "bg-blue-100 text-blue-600",
     },
     {
-      id: "withdraw",
+      id: "home/splits/withdraw",
       name: "Withdraw",
       icon: (
         <svg
@@ -48,7 +48,7 @@ const QuickAccess = () => {
       color: "bg-green-100 text-green-600",
     },
     {
-      id: "create",
+      id: "/home/splits/create",
       name: "Create Split",
       icon: <Plus size={28} />,
       color: "bg-purple-100 text-purple-600",
