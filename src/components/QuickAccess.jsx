@@ -7,21 +7,7 @@ const QuickAccess = () => {
       id: "/home/splits/transfer",
       name: "Transfer",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M20 10H4l5.5-6M4 14h16l-5.5 6"
-          />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 4v16l-6-5.5M14 20V4l6 5.5" /></svg>
       ),
       color: "bg-blue-100 text-blue-600",
     },
@@ -29,28 +15,16 @@ const QuickAccess = () => {
       id: "home/splits/withdraw",
       name: "Withdraw",
       icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="34"
-          height="34"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M11.25 6H9c-1.886 0-2.828 0-3.414.586S5 8.114 5 10v6.25h14V10c0-1.886 0-2.828-.586-3.414S16.886 6 15 6h-2.25v4.973l.68-.794a.75.75 0 1 1 1.14.976l-2 2.333a.75.75 0 0 1-1.14 0l-2-2.333a.75.75 0 0 1 1.14-.976l.68.794zM5.03 17.75h13.94c-.052.79-.189 1.297-.556 1.664C17.828 20 16.886 20 15 20H9c-1.886 0-2.828 0-3.414-.586c-.367-.367-.504-.873-.555-1.664"
-          />
-          <path
-            fill="currentColor"
-            d="M5.889 3H18.11C20.26 3 22 4.8 22 7.02c0 1.29-.587 2.437-1.5 3.173v-.282c0-.866 0-1.66-.087-2.305c-.095-.711-.32-1.463-.938-2.08c-.618-.619-1.37-.844-2.08-.94c-.646-.086-1.44-.086-2.306-.086H8.91c-.865 0-1.659 0-2.304.087c-.711.095-1.463.32-2.08.938c-.619.618-.844 1.37-.94 2.08c-.086.646-.086 1.44-.086 2.306v.282A4.06 4.06 0 0 1 2 7.02C2 4.8 3.741 3 5.889 3"
-          />
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 12a3 3 0 1 0 3 3a3 3 0 0 0-3-3m0 4a1 1 0 1 1 1-1a1 1 0 0 1-1 1m-.71-6.29a1 1 0 0 0 .33.21a.94.94 0 0 0 .76 0a1 1 0 0 0 .33-.21L15 7.46A1 1 0 1 0 13.54 6l-.54.59V3a1 1 0 0 0-2 0v3.59L10.46 6A1 1 0 0 0 9 7.46ZM19 15a1 1 0 1 0-1 1a1 1 0 0 0 1-1m1-7h-3a1 1 0 0 0 0 2h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1h3a1 1 0 0 0 0-2H4a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3v-8a3 3 0 0 0-3-3M5 15a1 1 0 1 0 1-1a1 1 0 0 0-1 1" /></svg>
       ),
       color: "bg-green-100 text-green-600",
     },
     {
       id: "/home/splits/create",
       name: "Create Split",
-      icon: <Plus size={28} />,
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 20 20"><path fill="currentColor" d="M14 17h-3.5v-6.5H17V14a3 3 0 0 1-3 3m3-7.5h-6.5V3H14a3 3 0 0 1 3 3zM6 3h3.5v14H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3" /></svg>
+      ),
       color: "bg-purple-100 text-purple-600",
     },
     {
@@ -59,8 +33,8 @@ const QuickAccess = () => {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="30"
-          height="30"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -82,16 +56,16 @@ const QuickAccess = () => {
   return (
     <div className="rounded-xl shadow-md mb-6">
       <h2 className="text-md font-medium text-gray-50 mb-4">Quick Access</h2>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-4 gap-0 border border-gray-700 bg-stone-900 p-1 py-2 rounded-lg">
         {quickActions.map((action) => (
           <Link
             end
             to={action.id}
             key={action.id}
-            className="flex flex-col items-center justify-center rounded-lg transition-all hover:shadow-md "
+            className="flex flex-col items-center justify-between rounded-lg transition-all hover:shadow-md "
           >
             <div
-              className={`w-16 h-16 ${action.color} rounded-md p-2 flex items-center justify-center mb-2`}
+              className={`w-16 h-16 ${action.color} rounded-md p-0 flex items-center justify-center mb-2`}
             >
               {action.icon}
             </div>

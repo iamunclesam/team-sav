@@ -81,7 +81,7 @@ const BalanceCard = () => {
   }, []);
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white p-3 rounded-2xl mb-6 shadow-lg backdrop-opacity-80 backdrop-blur-md">
+    <div className="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-800 to-blue-900 text-white p-3 rounded-2xl mb-6 shadow-lg ">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(255,255,255,0.1),transparent_60%)]"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.15),transparent_50%)]"></div>
       <div className="absolute -inset-1 bg-gradient-to-t from-white/[0.05] to-transparent"></div>
